@@ -9,7 +9,7 @@ namespace HBAcademy
 {
     internal class Buoi10
     {
-        internal static void Thuchanh()
+        internal static void Thuchanh1()
         {
             Console.WriteLine("So so muon so sanh :"); int n = int.Parse(Console.ReadLine());
             Random random = new Random();
@@ -100,15 +100,42 @@ namespace HBAcademy
                 }
             }
         }
-        
-
         internal static void Thuchanh2()
+        {
+            List<string> ten = new List<string>();
+            List<int> diem = new List<int>();
+
+            int n = int.Parse(Console.ReadLine());
+            for(int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Nhap ten hoc vien");
+                ten[i]  = Console.ReadLine();
+                Console.WriteLine("");
+                diem[i] = int.Parse(Console.ReadLine());
+            }
+            Queue<int> queue = new Queue<int>();
+            for (int i = 0; i < n;i++)
+            {
+                if (diem[i] > 8)
+                {
+                    queue.Enqueue(i);
+                }
+            }
+
+            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("Danh sach sinh vien duoc diem Toan tren 8 diem:");
+            while (queue.Count > 0)
+            {
+                Console.WriteLine(ten[queue.Dequeue()]);
+            }
+        }
+        internal static void Thuchanh3()
         {
             Random random = new Random();
             Console.Clear();
             //Danh sach
             string[] ten = new string[] { "Bac", "Nam", "Thong", "Nhat", "Yahoooo" };
-            string[] hang = new string[] { "Bun dau", "Nem nuong", "Pho cuon", "Banh mi chao", "Tra da"};
+            string[] hang = new string[] { "Bun dau", "Nem nuong", "Pho cuon", "Banh mi chao", "Tra da" };
 
 
 
@@ -137,16 +164,16 @@ namespace HBAcademy
             for (int i = 0; i < hang.GetLength(0); i++)
             {
                 Console.Write($"{hang[i],-15}");
-                
+
             }
             Console.WriteLine();
             for (int i = 0; i < Soluong.GetLength(0); i++)
             {
-                Console.Write($"{ten[i],-15}"); 
-                for (int j = 0;j < Soluong.GetLength(1);j++)
+                Console.Write($"{ten[i],-15}");
+                for (int j = 0; j < Soluong.GetLength(1); j++)
                 {
                     Console.Write($"{Soluong[i, j],-15}");
-                    
+
                 }
                 Console.WriteLine();
             }
@@ -156,12 +183,12 @@ namespace HBAcademy
 
             //So luong moi nhan vien ban duoc
             int[] soluong_nv = new int[hang.Length];
-            for ( int i = 0;i < soluong_nv.GetLength(0);i++)
+            for (int i = 0; i < soluong_nv.GetLength(0); i++)
             {
                 soluong_nv[i] = 0;
             }
-            
-            for (int i = 0; i< soluong_nv.GetLength(0); i++)
+
+            for (int i = 0; i < soluong_nv.GetLength(0); i++)
             {
                 for (int j = 0; j < Soluong.GetLength(1); j++)
                 {
@@ -280,35 +307,5 @@ namespace HBAcademy
 
         }
 
-
-        internal static void Sapxep()
-        {
-            List<string> ten = new List<string>();
-            List<int> diem = new List<int>();
-
-            int n = int.Parse(Console.ReadLine());
-            for(int i = 0; i < n; i++)
-            {
-                Console.WriteLine("Nhap ten hoc vien");
-                ten[i]  = Console.ReadLine();
-                Console.WriteLine("");
-                diem[i] = int.Parse(Console.ReadLine());
-            }
-            Queue<int> queue = new Queue<int>();
-            for (int i = 0; i < n;i++)
-            {
-                if (diem[i] > 8)
-                {
-                    queue.Enqueue(i);
-                }
-            }
-
-            Console.WriteLine("-----------------------------------------------");
-            Console.WriteLine("Danh sach sinh vien duoc diem Toan tren 8 diem:");
-            while (queue.Count > 0)
-            {
-                Console.WriteLine(ten[queue.Dequeue()]);
-            }
-        }
     }
 }
